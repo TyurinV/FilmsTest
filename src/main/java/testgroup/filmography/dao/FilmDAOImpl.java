@@ -1,10 +1,12 @@
 package testgroup.filmography.dao;
 
+import org.springframework.stereotype.Repository;
 import testgroup.filmography.model.Film;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@Repository
 public class FilmDAOImpl implements FilmDAO {
     private static final AtomicInteger AUTO_ID = new AtomicInteger(1);
     private static Map<Integer, Film> films = new HashMap<>();
@@ -26,6 +28,7 @@ public class FilmDAOImpl implements FilmDAO {
         film2.setWatched(true);
         films.put(film2.getId(), film2);
     }
+
     @Override
     public List<Film> allFilms() {
         return new ArrayList<>(films.values());
